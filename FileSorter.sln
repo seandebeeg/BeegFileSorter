@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileSorter.Client", "FileSorter.Client\FileSorter.Client.csproj", "{8EB93696-8F38-48FD-90E1-C1B3544A77F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileSorter.Shared", "FileSorter.Shared\FileSorter.Shared.csproj", "{45665C9C-1C23-4621-8702-C8AB6B517B0F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileSorter.Service", "FileSorter.Service\FileSorter.Service.csproj", "{4499E80A-8DEA-49D6-812C-1D2566DB2EFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EB93696-8F38-48FD-90E1-C1B3544A77F7}.Debug|x64.ActiveCfg = Debug|x64
+		{8EB93696-8F38-48FD-90E1-C1B3544A77F7}.Debug|x64.Build.0 = Debug|x64
+		{8EB93696-8F38-48FD-90E1-C1B3544A77F7}.Release|x64.ActiveCfg = Release|x64
+		{8EB93696-8F38-48FD-90E1-C1B3544A77F7}.Release|x64.Build.0 = Release|x64
+		{45665C9C-1C23-4621-8702-C8AB6B517B0F}.Debug|x64.ActiveCfg = Debug|x64
+		{45665C9C-1C23-4621-8702-C8AB6B517B0F}.Debug|x64.Build.0 = Debug|x64
+		{45665C9C-1C23-4621-8702-C8AB6B517B0F}.Release|x64.ActiveCfg = Release|x64
+		{45665C9C-1C23-4621-8702-C8AB6B517B0F}.Release|x64.Build.0 = Release|x64
+		{4499E80A-8DEA-49D6-812C-1D2566DB2EFB}.Debug|x64.ActiveCfg = Debug|x64
+		{4499E80A-8DEA-49D6-812C-1D2566DB2EFB}.Debug|x64.Build.0 = Debug|x64
+		{4499E80A-8DEA-49D6-812C-1D2566DB2EFB}.Release|x64.ActiveCfg = Release|x64
+		{4499E80A-8DEA-49D6-812C-1D2566DB2EFB}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
