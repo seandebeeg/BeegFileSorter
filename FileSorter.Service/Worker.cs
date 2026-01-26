@@ -1,6 +1,4 @@
 ﻿using FileSorter.Shared;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace FileSorter;
@@ -74,8 +72,17 @@ public class Worker : BackgroundService
       {
         try
         {
-          await Task.Delay(500, token); // let file finish installing
-          SortFile(e.FullPath, _settings.DestinationPath);
+          var extension = Path.GetExtension(e.FullPath).ToLowerInvariant();
+          if (extension == ".tmp")
+          {
+            await Task.Delay(600000, token); // lets user select file location without failing to download
+            SortFile(e.FullPath, _settings.DestinationPath);
+          }
+          else
+          {
+            await Task.Delay(5000, token); // let file finish installing
+            SortFile(e.FullPath, _settings.DestinationPath);
+          }
         }
         catch (OperationCanceledException) { }
         catch (Exception ex) { _logger.LogError(ex, "Error handling file {file}", e.FullPath); }
@@ -105,11 +112,11 @@ public class Worker : BackgroundService
       string ext = Path.GetExtension(filePath).ToLowerInvariant();
       string folder = ext switch
       {
-        ".jpg" or ".png" or ".gif" or ".svg" or ".jpeg" or ".bmp" or ".ico" => "Images",
+        ".jpg" or ".png" or ".gif" or ".svg" or ".jpeg" or ".bmp" or ".ico" or ".webp" => "Images",
         ".doc" or ".docx" or ".pdf" or ".txt" => "Text Documents",
         ".xlsx" or ".xls" or ".xlsb" or ".xlsm" => "Spreadsheets",
         ".mp3" or ".wav" or ".ogg" or ".aac" or ".alac" or ".flac" or ".m4a" => "Audio",
-        ".mp4" or ".mov" => "Videos",
+        ".mp4" or ".mov" or ".webm" => "Videos",
         ".exe" or ".dll" or ".bat" => "Executables",
         ".js" or ".html" or ".cs" or ".cpp" or ".c" or ".py" or ".sql" or ".xaml" or ".xml" or ".css" or ".lua" => "Code",
         ".lnk" => "Shortcuts",
